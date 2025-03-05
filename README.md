@@ -59,13 +59,13 @@ It requires the mat files **SP_base**, **SP_nocurt**, **SP_curt** and **SP_costs
 This script has 8 sections and saves **SP_costs** (structure). 
 1. Load the necessary data.
 2. 
-a. Solve for the optimized process design for each year at each location categorized as middle10, for curtailment level ranging from 0-99% in steps of 1% curtailment.
-b. Same as 2a for locations categorized as top10. 
-c. Same as 2a for locations categoried as bottom10. 
+    1. Solve for the optimized process design for each year at each location categorized as middle10, for curtailment level ranging from 0-99% in steps of 1% curtailment.
+    2. Same as 2.1 for locations categorized as top10. 
+    3. Same as 2.1 for locations categoried as bottom10. 
 3. 
-a. Using the optimizations in 2a, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
-b. Using the optimizations in 2b, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
-c. Using the optimizations in 2c, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    1. Using the optimizations in 2.1, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
+    2. Using the optimizations in 2.2, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
+    3. Using the optimizations in 2.3, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
 4. Using the optimization results and utilization costs in section 3 to find the monthly costs and values for two select locations.  
 
 ##Cost and value analysis of wind energy in **Utilization_Costs_Wind.m**
@@ -73,13 +73,13 @@ It requires the mat files **WP_base**, **WP_nocurt**, **WP_curt** and **WP_costs
 This script has 8 sections and saves **WP_costs** (structure). 
 1. Load the necessary data.
 2. 
-a. Solve for the optimized process design for each year at each location categorized as middle10, for curtailment level ranging from 0-99% in steps of 1% curtailment.
-b. Same as 2a for locations categorized as top10. 
-c. Same as 2a for locations categoried as bottom10. 
+    1. Solve for the optimized process design for each year at each location categorized as middle10, for curtailment level ranging from 0-99% in steps of 1% curtailment.
+    2. Same as 2.1 for locations categorized as top10. 
+    3. Same as 2.1 for locations categoried as bottom10. 
 3. 
-a. Using the optimizations in 2a, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
-b. Using the optimizations in 2b, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
-c. Using the optimizations in 2c, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    1. Using the optimizations in 2.1, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
+    2. Using the optimizations in 2.2, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost. 
+    3. Using the optimizations in 2.3, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
 4. Using the optimization results and utilization costs in section 3 to find the monthly costs and values for two select locations.
 
 ##Cost and value analysis of solar energy with ramping to 40% min. capacity in **CostswRamp_Solar.m**
@@ -87,56 +87,60 @@ It requires the mat files **SP_base**, **SP_nocurt**, **SP_curt** and **SP_costs
 This script has 9 sections and saves **SP_rampcosts** (structure). 
 1. Load the necssary data. 
 2. 
-a. Solve for the optimized process design with ramping to 40% mininimum capacity for each year at each location categorized as top10, for curtailment level ranging from 0-99% in steps of 1% curtailment. 
-b. Same as 2a for locations categorized as middle10. 
-c. Same as 2a for locations categorized as bottom10. 
+    1. Solve for the optimized process design with ramping to 40% mininimum capacity for each year at each location categorized as top10, for curtailment level ranging from 0-99% in steps of 1% curtailment. 
+    2. Same as 2.1 for locations categorized as middle10. 
+    3. Same as 2.1 for locations categorized as bottom10. 
 3. 
-a. Using the optimizations in 2a, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
-b. Using the optimizations in 2b, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
-c. Using the optimizations in 2c, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    1. Using the optimizations in 2.1, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    2. Using the optimizations in 2.2, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    3. Using the optimizations in 2.3, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
 4. 
-a. Using the optimization results and utilization costs in 2a to find the monthly costs and values for a select top10 location.
-b. Using the optimization results and utilization costs in 2b to find the monthly costs and values for a select middle10 location.
+    1. Using the optimization results and utilization costs in 2.1 to find the monthly costs and values for a select top10 location.
+    2. Using the optimization results and utilization costs in 2.2 to find the monthly costs and values for a select middle10 location.
 
 ##Cost and value analysis of wind energy with ramping to 40% min. capacity in **CostswRamp_Wind.m**
 It requires the mat files **WP_base**, **WP_nocurt**, **WP_curt** and **WP_costs** in the path. 
 This script has 9 sections and saves **WP_rampcosts** (structure). 
 1. Load the necessary data. 
-2. 
-a. Solve for the optimized process design with ramping to 40% mininimum capacity for each year at each location categorized as top10, for curtailment level ranging from 0-99% in steps of 1% curtailment. 
-b. Same as 2a for locations categorized as middle10. 
-c. Same as 2a for locations categorized as bottom10. 
-3. 
-a. Using the optimizations in 2a, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
-b. Using the optimizations in 2b, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
-c. Using the optimizations in 2c, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
-4. 
-a. Using the optimization results and utilization costs in 2a to find the monthly costs and values for a select top10 location.
-b. Using the optimization results and utilization costs in 2b to find the monthly costs and values for a select middle10 location.
+2. Process design
+    1. Solve for the optimized process design with ramping to 40% mininimum capacity for each year at each location categorized as top10, for curtailment level ranging from 0-99% in steps of 1% curtailment. 
+    2. Same as 2-1 for locations categorized as middle10. 
+    3. Same as 2-1 for locations categorized as bottom10. 
+3. Cost of utilizing energy
+    1. Using the optimizations in 2.1, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    2. Using the optimizations in 2.2, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+    3. Using the optimizations in 2.3, calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
+4. Monthly costs
+    1. Using the optimization results and utilization costs in 2.1 to find the monthly costs and values for a select top10 location.
+    2. Using the optimization results and utilization costs in 2.2 to find the monthly costs and values for a select middle10 location.
 
 ##Cost and value analysis with combined solar/wind energy in **Utilization_Costs_Combined.m**
-It requires **CP_base_solar.mat**, **CP_base_wind.mat** and **CP_costs**. The CP_costs structure must already contain vectors which contain the **lat_lon** codes for the locations categorized as top, topsolar, topwind and average. These are defined as the lowest 15% of LCOA for solar and wind individually, lowest 10% of solar LCOA and 45-55% percentile of wind LCOA, lowest 10% of wind LCOA and 45-55% percentile of solar LCOA, and 45-55% percentile of solar and wind LCOA individually, respectively. 
+It requires **CP_base_solar.mat**, **CP_base_wind.mat** and **CP_costs**. 
+The CP_costs structure must already contain vectors which contain the **lat_lon** codes for the locations categorized as top, topsolar, topwind and average. 
+These are defined as the lowest 15% of LCOA for solar and wind individually, lowest 10% of solar LCOA and 45-55% percentile of wind LCOA, lowest 10% of wind LCOA and 45-55% percentile of solar LCOA, and 45-55% percentile of solar and wind LCOA individually, respectively. 
 This script has 29 sections and saves the structure **CP_costs**. 
 1. Load the necessary data. 
 2. 
-a-1. Solve for the optimized process design with combined solar and wind at average locations. 
-a-2. Same locations and procedure as 2a-1, but only using solar energy at the location. 
-a-3. Same locations and procedure as 2a-1, but only using wind energy at the location.
-b-1 - b-3. Same as a-1 - a-3, but for locations categorized as top solar. 
-c-1 - c-3. Same as a-1 - a-3, but for locations categorized as top wind. 
-d-1 - d-3. Same as a-1 - a-3, but for locations categorized as top.
+    1. 
+        1. Solve for the optimized process design with combined solar and wind at average locations. 
+        2. Same locations and procedure as 2.1.1, but only using solar energy at the location. 
+        3. Same locations and procedure as 2.1.1, but only using wind energy at the location.
+    2. 2.2.1 - 2.2.3. Same as 2.1.1 - 2.1.3, but for locations categorized as top solar. 
+    3. 2.3.1 - 2.3.3. Same as 2.1.1 - 2.1.3, but for locations categorized as top wind. 
+    4. 2.4.1 - 2.4.3. Same as 2.1.1 - 2.1.3, but for locations categorized as top.
 3. 
-a-1. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of combined solar and wind.
-a-2. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of only solar. 
-a-3. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of only wind. 
-b-1 - b-3. Same as a-1 - a-3, except for locations categorized as top solar. 
-c-1 - c-3. Same as a-1 - a-3, except for locations categorized as top wind. 
-d-1 - d-3. Same as a-1 - a-3, except for location categorized as average. 
+    1. 
+        1. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of combined solar and wind.
+        2. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of only solar. 
+        3. Calculate utilization costs as a function of percent curtailment for top locations using previous optimization results of only wind. 
+    2. 3.2.1 - 3.2.3. Same as 3.1.1 - 3.1.3, except for locations categorized as top solar. 
+    3. 3.3.1 - 3.3.3. Same as 3.1.1 - 3.1.3, except for locations categorized as top wind. 
+    4. 3.4.1 - 3.4.3. Same as 3.1.1 - 3.1.3, except for location categorized as average. 
 4. 
-a. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at average locations. 
-b. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top solar locations. 
-c. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top wind locations. 
-d. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top locations. 
+    1. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at average locations. 
+    2. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top solar locations. 
+    3. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top wind locations. 
+    4. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top locations. 
 
 ##Generate maps of LCOA and fraction curtailment in **Map_Generation.mlx**.
 It requires the mat files **SP_nocurt**, **WP_nocurt**, **SP_curt**, **WP_curt**, **SP_ramp**, **WP_ramp**, **CP_curt**, and **PinkHeatMap**, and **YellowBluemap**.
