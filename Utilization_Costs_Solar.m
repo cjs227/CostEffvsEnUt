@@ -20,13 +20,12 @@ BattstorageCapital = SP_base.BattstorageCapital; %$/kWh
 BattpowerCapital = SP_base.BattpowerCapital; %$/GW fed in
 panel_OnM = SP_base.panel_OnM; % Dollar per MW per year
 elect_OnM = SP_base.elect_OnM;
-batt_OnM = SP_base.batt_OnM; %$/MWh
 HB_OnM = SP_base.HB_OnM; %dollar per year
 discountRate = SP_base.discountRate;
 opYear = SP_base.opYear; % years
 annual=(SP_base.discountRate/(1-(1+SP_base.discountRate)^(-1*SP_base.opYear)));
 
-% 2a. Solving algorithm to optimize the process design when setting the
+% 2.i Solving algorithm to optimize the process design when setting the
 % panel size to between 1-99% curtailment. Analysing average locations. 
 SP_costs.middle10_results = struct;
 for i = 1:10
@@ -150,7 +149,7 @@ for i = 1:10
     SP_costs.middle10_results.LCOA{i} = LCOA_save;
     SP_costs.middle10_results.batteryUse{i} = batteryUse_save;
 end
-% 2b. Same as 2a for the top10 locations. 
+% 2.ii Same as 2.i for the top10 locations. 
 SP_costs.top10_results = struct;
 for i = 1:10
     loc = SP_costs.top10_loc(i,1);
@@ -277,7 +276,7 @@ for i = 1:10
     SP_costs.top10_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2c. Same as 2a and 2b for bottom 10 locations.
+% 2.iii Same as 2.i and 2.ii for bottom 10 locations.
 SP_costs.bot10_results = struct;
 for i = 1:10
     loc = SP_costs.bot10_loc(i,1);
@@ -404,7 +403,7 @@ for i = 1:10
     SP_costs.bot10_results.batteryUse{i} = batteryUse_save;
 end
 
-% 3a. Calculate the cost of utilization metrics for top 10 locations using optimization
+% 3.i Calculate the cost of utilization metrics for top 10 locations using optimization
 % results.
 clearvars -except SP_costs panelCapital panel_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -485,7 +484,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3b. Calculate the costs of utilization metrics for the bottom 10 locations using
+% 3.ii Calculate the costs of utilization metrics for the bottom 10 locations using
 % optimization results. 
 clearvars -except SP_costs panelCapital panel_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -567,7 +566,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3c. Calculate the utilization cost metrics for the average 10 locations using
+% 3.iii Calculate the utilization cost metrics for the average 10 locations using
 % optimization results. 
 clearvars -except SP_costs panelCapital panel_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';

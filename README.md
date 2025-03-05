@@ -82,7 +82,7 @@ This script has 8 sections and saves **WP_costs** (structure).
     3. Using the optimizations in 2.iii, Calculate the cost of utilizing energy for each process component as well as the total cost of utilization and total energy cost.
 4. Using the optimization results and utilization costs in section 3 to find the monthly costs and values for two select locations.
 
-## Cost and value analysis of solar energy with ramping to 40% min. capacity in **CostswRamp_Solar.m**
+## Cost and value analysis of solar energy with ramping to 40% min. capacity in **Utilization_Costs_RampSolar.m**
 It requires the mat files **SP_base**, **SP_nocurt**, **SP_curt** and **SP_costs** in the path. 
 This script has 9 sections and saves **SP_rampcosts** (structure). 
 1. Load the necssary data. 
@@ -98,7 +98,7 @@ This script has 9 sections and saves **SP_rampcosts** (structure).
     1. Using the optimization results and utilization costs in 2.i to find the monthly costs and values for a select top10 location.
     2. Using the optimization results and utilization costs in 2.ii to find the monthly costs and values for a select middle10 location.
 
-## Cost and value analysis of wind energy with ramping to 40% min. capacity in **CostswRamp_Wind.m**
+## Cost and value analysis of wind energy with ramping to 40% min. capacity in **Utilization_Costs_RampWind.m**
 It requires the mat files **WP_base**, **WP_nocurt**, **WP_curt** and **WP_costs** in the path. 
 This script has 9 sections and saves **WP_rampcosts** (structure). 
 1. Load the necessary data. 

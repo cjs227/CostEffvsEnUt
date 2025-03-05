@@ -34,14 +34,14 @@ for i = 1:length(theFiles)
         %extract data for the year 2015
         SP_base.ID(6*k-3)=k;
         SP_base.year{6*k-3} = 2015;
-        SP_base.panelPower{6*k-3} = table2array(panelPowerTemp(17545:26304,2));
+        SP_base.panelPower{6*k-3} = table2array(panelPowerTemp(17545:26304,2)); %this year is shifted by 1 day due to misapplication of leap-years
         SP_base.location(6*k-3) = string(theFiles(i).name(12:24));
         SP_base.Lat(6*k-3)=Lat;
         SP_base.Lon(6*k-3)=Lon;
         %extract data for the year 2016
         SP_base.ID(6*k-2)=k;
         SP_base.year{6*k-2} = 2016;
-        SP_base.panelPower{6*k-2} = table2array(panelPowerTemp(26305:35064,2));
+        SP_base.panelPower{6*k-2} = table2array(panelPowerTemp(26305:35064,2)); %this year is shifted by 1 day due to misapplication of leap-years
         SP_base.location(6*k-2) = string(theFiles(i).name(12:24));
         SP_base.Lat(6*k-2)=Lat;
         SP_base.Lon(6*k-2)=Lon;
@@ -107,7 +107,6 @@ SP_base.BattstorageCapital=BattstorageCapital;
 SP_base.BattpowerCapital=BattpowerCapital;
 SP_base.panel_OnM=panel_OnM;
 SP_base.elect_OnM=elect_OnM;
-SP_base.batt_OnM=batt_OnM;
 SP_base.HB_OnM=HB_OnM;
 SP_base.discountRate=discountRate;
 SP_base.opYear=opYear;

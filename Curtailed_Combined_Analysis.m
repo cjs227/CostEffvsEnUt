@@ -1,4 +1,4 @@
-% 1. LOad the necessary data, initialize the combined data structures and
+% 1. Load the necessary data, initialize the combined data structures and
 % input the necessary parameters
 load('SP_base')
 load('WP_base')
@@ -41,7 +41,6 @@ CP_base_solar.BattpowerCapital=SP_base.BattpowerCapital;
 CP_base_solar.HBCapital=SP_base.HBCapital;
 CP_base_solar.panel_OnM=SP_base.panel_OnM;
 CP_base_solar.elect_OnM=SP_base.elect_OnM;
-CP_base_solar.batt_OnM=SP_base.batt_OnM;
 CP_base_solar.HB_OnM=SP_base.HB_OnM;
 CP_base_solar.discountRate=SP_base.discountRate;
 CP_base_solar.opYear=SP_base.opYear;

@@ -35,7 +35,7 @@ for v = 1:2190
     end
 end
 
-% 2a. Run the optimization algorithm for each year at each location for the
+% 2.i Run the optimization algorithm for each year at each location for the
 % percent curtailment set between 0-99%. This section is for the top
 % locations
 WP_rampcosts.top10_results = struct;
@@ -160,7 +160,7 @@ for i = 1:10
                 batterykWh(j,1)=sol.Batt_buffer*277.78;
                 LCOA(j,1)=fval;
                 NH3Cap(j,1) = sol.NH3cap *PReq;
-                electUse{j,1}=sol.Elec_extract; %changed to 
+                electUse{j,1}=sol.Elec_extract; %electricity use instead of battery use
                 NH3ramp{j,1} = sol.NH3prod;
             else
                 turbinekWp(j,1)=0;
@@ -201,7 +201,7 @@ for i = 1:10
     WP_rampcosts.top10_results.NH3ramp{i} = NH3ramp_save;
 end
 
-% 2b. Same as for 2a for the bottom locations
+% 2.ii Same as for 2.i for the bottom locations
 WP_rampcosts.bot10_results = struct;
 for i = 1:10
     loc = WP_rampcosts.bot10_loc(i,1);
@@ -324,7 +324,7 @@ for i = 1:10
                 batterykWh(j,1)=sol.Batt_buffer*277.78;
                 LCOA(j,1)=fval;
                 NH3Cap(j,1) = sol.NH3cap *PReq;
-                electUse{j,1}=sol.Elec_extract; %changed to 
+                electUse{j,1}=sol.Elec_extract; %electricity use instead of battery use 
                 NH3ramp{j,1} = sol.NH3prod;
             else
                 turbinekWp(j,1)=0;
@@ -365,7 +365,7 @@ for i = 1:10
     WP_rampcosts.bot10_results.NH3ramp{i} = NH3ramp_save;
 end
 
-% 2c. Same as for 2a and 2b for the average locations
+% 2.iii Same as for 2.i and 2.ii for the average locations
 WP_rampcosts.middle10_results = struct;
 for i = 1:10
     loc = WP_rampcosts.middle10_loc(i,1);
@@ -488,7 +488,7 @@ for i = 1:10
                 batterykWh(j,1)=sol.Batt_buffer*277.78;
                 LCOA(j,1)=fval;
                 NH3Cap(j,1) = sol.NH3cap *PReq;
-                electUse{j,1}=sol.Elec_extract; %changed to 
+                electUse{j,1}=sol.Elec_extract; %electricity use instead of battery use 
                 NH3ramp{j,1} = sol.NH3prod;
             else
                 turbinekWp(j,1)=0;
@@ -531,7 +531,7 @@ end
 clearvars -except WP_rampcosts WP_base electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 save('WP_rampcosts','WP_rampcosts')
 
-% 3a. Calculate the utilization costs for the average locations using the
+% 3.i Calculate the utilization costs for the average locations using the
 % optimization results
 S = linspace(1,100)';
 for i = 1:10 %cycle through each of the 10 locations in the category
@@ -630,7 +630,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         +delta_HBCost - delta_HBSizeCost_SS - delta_ASUSizeCost_SS;
 end
 
-% 3b. Calculate the utilization costs for the top locations using the
+% 3.ii Calculate the utilization costs for the top locations using the
 % optimization results
 S = linspace(1,100)';
 for i = 1:10 %cycle through each of the 10 locations in the category
@@ -729,7 +729,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         +delta_HBCost - delta_HBSizeCost_SS - delta_ASUSizeCost_SS;
 end
 
-% 3c. Calculate the utilization costs for the bottom locations using the
+% 3.iii Calculate the utilization costs for the bottom locations using the
 % optimization results
 S = linspace(1,100)';
 for i = 1:10 %cycle through each of the 10 locations in the category
@@ -830,7 +830,7 @@ end
 save('WP_rampcosts','WP_rampcosts')
 clearvars
 
-% 4a. Calculate the monthly cost and value metrics for top location
+% 4.i Calculate the monthly cost and value metrics for top location
 load('WP_base')
 load('WP_nocurt')
 load('WP_curt')
@@ -898,7 +898,7 @@ for i = 6:6 % configured to only analyse one location (index 6), could be change
             power = single(turbines(end,y) * turbinePowers{y} * (1/1E9)); %initialize the hourly power profile provided by wind turbines, according to the turbine size for no curtailment 
             power_orig = power; %set the original power profile to later use
             battery_use = battery_uses_year{k,1}; %extract the particular hourly battery use over a year for a given location and year
-            battery_use = (battery_use) * S(k)/100; %baseline electrical requirement added to battery usage, making is electricity extraction, but keep name as battery usage
+            battery_use = (battery_use) * S(k)/100; %electricity usage, still called battery usage
             battery_use(battery_use < 0 ) = 0; %if battery use is negative, set it to zero.
             power = power - battery_use; %power supply after removing the electricity extraction
             elect_curtail = power - H2Sizes(k,y)*S(k)/100; %calculate the amount of electricity curtailed due to it being above the rated capacity of the electrolyser
@@ -1011,7 +1011,7 @@ for i = 6:6 % configured to only analyse one location (index 6), could be change
     WP_rampcosts.top10_monthlyValues{i} = monthlyResults;
 end
 
-% 4b. Calculate the monthly cost and value metrics for average location
+% 4.ii Calculate the monthly cost and value metrics for average location
 clearvars -except WP_rampcosts WP_base WP_nocurt WP_curt
 S = linspace(1,100)';%list is a scaling array for percent curtailment. 
 % It is used to resize all of the process units for each level of curtailment 
@@ -1076,7 +1076,7 @@ for i = 5:5 % configured to only analyse one location (index 5), could be change
             power = single(turbines(end,y) * turbinePowers{y} * (1/1E9)); %initialize the hourly power profile provided by wind turbines, according to the turbine size for no curtailment 
             power_orig = power; %set the original power profile to later use
             battery_use = battery_uses_year{k,1}; %extract the particular hourly battery use over a year for a given location and year
-            battery_use = (battery_use) * S(k)/100; %baseline electrical requirement added to battery usage, making is electricity extraction, but keep name as battery usage
+            battery_use = (battery_use) * S(k)/100; %electricity usage, but still called battery usage
             battery_use(battery_use < 0 ) = 0; %if battery use is negative, set it to zero.
             power = power - battery_use; %power supply after removing the electricity extraction
             elect_curtail = power - H2Sizes(k,y)*S(k)/100; %calculate the amount of electricity curtailed due to it being above the rated capacity of the electrolyser

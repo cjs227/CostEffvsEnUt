@@ -264,7 +264,6 @@ WP_base.turbine_OnM=turbine_OnM;
 WP_base.turbine_OnM_offshore=turbine_OnM_offshore;
 WP_base.turbine_OnM_floating=turbine_OnM_floating;
 WP_base.elect_OnM=elect_OnM;
-WP_base.batt_OnM=batt_OnM;
 WP_base.HB_OnM=HB_OnM;
 WP_base.discountRate=discountRate;
 WP_base.opYear=opYear;

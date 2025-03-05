@@ -23,7 +23,7 @@ discountRate = WP_base.discountRate; % discount rate of capital
 opYear = WP_base.opYear; % operating years of the plant
 annual=(WP_base.discountRate/(1-(1+WP_base.discountRate)^(-1*WP_base.opYear))); % capital annualization factor 
 
-% 2a. Solving algorithm to optimize the process design when setting the
+% 2.i Solving algorithm to optimize the process design when setting the
 % turbine size to between 1-99% curtailment. Analysing average locations. 
 WP_costs.middle10_results = struct;
 for i = 1:1
@@ -159,7 +159,7 @@ for i = 1:1
     WP_costs.middle10_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2b. Same as 2a for the top10 locations
+% 2.ii Same as 2.i for the top10 locations
 WP_costs.top10_results = struct;
 for i = 1:1
     loc = WP_costs.top10_loc(i,1);
@@ -293,7 +293,7 @@ for i = 1:1
     WP_costs.top10_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2c. Same as 2a and 2b for the bot10 locations
+% 2.iii Same as 2.i and 2.i for the bot10 locations
 WP_costs.bot10_results = struct;
 for i = 1:1
     loc = WP_costs.bot10_loc(i,1);
@@ -427,7 +427,7 @@ for i = 1:1
     WP_costs.bot10_results.batteryUse{i} = batteryUse_save;
 end
 
-% 3a. Calculate the utilization costs for top 10 locations using optimization
+% 3.i Calculate the utilization costs for top 10 locations using optimization
 % results.
 clearvars -except WP_costs turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -524,7 +524,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3b. Calculate the utilization costs for bottom 10 locations using optimization
+% 3.ii Calculate the utilization costs for bottom 10 locations using optimization
 % results.
 clearvars -except WP_costs turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -621,7 +621,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3c. Calculate the utilization costs for average locations using optimization
+% 3.iii Calculate the utilization costs for average locations using optimization
 % results.
 clearvars -except WP_costs turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';

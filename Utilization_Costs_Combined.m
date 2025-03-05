@@ -30,7 +30,7 @@ discountRate = CP_base_solar.discountRate;
 opYear = CP_base_solar.opYear; % years
 annual=(CP_base_solar.discountRate/(1-(1+CP_base_solar.discountRate)^(-1*CP_base_solar.opYear)));
 
-% 2a-1. Run the optimization for average locations with solar and wind
+% 2.1.a Run the optimization for average locations with solar and wind
 % combined
 CP_costs.average_results = struct; % initialize structure
 for i = 1:10
@@ -183,7 +183,7 @@ for i = 1:10
     CP_costs.average_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2a-2. Run the optimization for 0-99% curtailment for average locations using only solar energy
+% 2.1.b Run the optimization for 0-99% curtailment for average locations using only solar energy
 CP_costs.average_solaronly = struct;
 for i = 1:10
     loc = CP_costs.average_loc(i,1);
@@ -311,7 +311,7 @@ for i = 1:10
     CP_costs.average_solaronly.LCOA{i} = LCOA_save;
 end
 
-% 2a-3. Run the optimization for 0-99% curtailment for average locations
+% 2.i.c Run the optimization for 0-99% curtailment for average locations
 % using only wind energy
 CP_costs.average_windonly = struct;
 for i = 1:10
@@ -440,7 +440,7 @@ for i = 1:10
 end
 save('CP_costs','CP_costs')
 
-% 2b-1. Run the optimization for top solar locations with solar and wind
+% 2.ii.a Run the optimization for top solar locations with solar and wind
 % combined
 CP_costs.topsolar_results = struct; % initialize structure
 for i = 1:10
@@ -593,7 +593,7 @@ for i = 1:10
     CP_costs.topsolar_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2b-2. Run the optimization for 0-99% curtailment for top solar locations using only solar energy
+% 2.ii.b Run the optimization for 0-99% curtailment for top solar locations using only solar energy
 CP_costs.topsolar_solaronly = struct;
 for i = 1:10
     loc = CP_costs.topsolar_loc(i,1);
@@ -721,7 +721,7 @@ for i = 1:10
     CP_costs.topsolar_solaronly.LCOA{i} = LCOA_save;
 end
 
-% 2b-3. Run the optimization for 0-99% curtailment for top solar locations
+% 2.ii.c Run the optimization for 0-99% curtailment for top solar locations
 % using only wind energy
 CP_costs.topsolar_windonly = struct;
 for i = 1:10
@@ -850,7 +850,7 @@ for i = 1:10
 end
 save('CP_costs','CP_costs')
 
-% 2c-1. Run the optimization for top wind locations with solar and wind
+% 2.iii.a Run the optimization for top wind locations with solar and wind
 % combined
 CP_costs.topwind_results = struct; % initialize structure
 for i = 1:10
@@ -1003,7 +1003,7 @@ for i = 1:10
     CP_costs.topwind_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2c-2. Run the optimization for 0-99% curtailment for top wind locations using only solar energy
+% 2.iii.b Run the optimization for 0-99% curtailment for top wind locations using only solar energy
 CP_costs.topwind_solaronly = struct;
 for i = 1:10
     loc = CP_costs.topwind_loc(i,1);
@@ -1131,7 +1131,7 @@ for i = 1:10
     CP_costs.topwind_solaronly.LCOA{i} = LCOA_save;
 end
 
-% 2c-3. Run the optimization for 0-99% curtailment for top wind locations
+% 2.iii.c Run the optimization for 0-99% curtailment for top wind locations
 % using only wind energy
 CP_costs.topwind_windonly = struct;
 for i = 1:10
@@ -1260,7 +1260,7 @@ for i = 1:10
 end
 save('CP_costs','CP_costs')
 
-% 2d-1. Run the optimization for top locations with solar and wind
+% 2.iv.a Run the optimization for top locations with solar and wind
 % combined
 CP_costs.top_results = struct; % initialize structure
 for i = 1:10
@@ -1413,7 +1413,7 @@ for i = 1:10
     CP_costs.top_results.batteryUse{i} = batteryUse_save;
 end
 
-% 2d-2. Run the optimization for 0-99% curtailment for top locations using only solar energy
+% 2.iv.b Run the optimization for 0-99% curtailment for top locations using only solar energy
 CP_costs.top_solaronly = struct;
 for i = 1:10
     loc = CP_costs.top_loc(i,1);
@@ -1541,7 +1541,7 @@ for i = 1:10
     CP_costs.top_solaronly.LCOA{i} = LCOA_save;
 end
 
-% 2d-3. Run the optimization for 0-99% curtailment for top locations
+% 2.iv.c Run the optimization for 0-99% curtailment for top locations
 % using only wind energy
 CP_costs.top_windonly = struct;
 for i = 1:10
@@ -1671,7 +1671,7 @@ end
 save('CP_costs','CP_costs')
 
 
-% 3a-1. Calculate the utilization costs for top locations combined solar and
+% 3.i.a Calculate the utilization costs for top locations combined solar and
 % wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -1758,7 +1758,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3a-2. Calculate the utilization costs for top locations with only solar
+% 3.i.b Calculate the utilization costs for top locations with only solar
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.top_solaronly;
@@ -1838,7 +1838,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3a-3. Calculate the cost and value for top locations with only wind
+% 3.i.c Calculate the cost and value for top locations with only wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.top_windonly;
@@ -1920,7 +1920,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
 end
 
 
-% 3b-1. Calculate the utilziation costs for top solar locations combined solar and
+% 3.ii.a Calculate the utilziation costs for top solar locations combined solar and
 % wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -2007,7 +2007,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3b-2. Calculate the utilziation costs for top solar locations with only solar
+% 3.ii.b Calculate the utilziation costs for top solar locations with only solar
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.topsolar_solaronly;
@@ -2087,7 +2087,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3b-3. Calculate the utilization costs for top solar locations with only wind
+% 3.ii.c Calculate the utilization costs for top solar locations with only wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.topsolar_windonly;
@@ -2168,7 +2168,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3c-1. Calculate the utilization costs for top wind locations combined solar and
+% 3.iii.a Calculate the utilization costs for top wind locations combined solar and
 % wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -2255,7 +2255,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3c-2. Calculate the utilization costs for top solar locations with only solar
+% 3.iii.b Calculate the utilization costs for top solar locations with only solar
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.topwind_solaronly;
@@ -2335,7 +2335,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3c-3. Calculate the utilization costs for top wind locations with only wind
+% 3.iii.c Calculate the utilization costs for top wind locations with only wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.topwind_windonly;
@@ -2416,7 +2416,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_BatteryCost;
 end
 
-% 3d-1. Calculate the utilization costs for average locations combined solar and
+% 3.iv.a Calculate the utilization costs for average locations combined solar and
 % wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
@@ -2503,7 +2503,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3d-2. Calculate the utilization costs for average locations with only solar
+% 3.iv.b Calculate the utilization costs for average locations with only solar
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.average_solaronly;
@@ -2583,7 +2583,7 @@ for i = 1:10 %cycle through each of the 10 locations in the category
         + delta_H2bufferCost ...
         + delta_BatteryCost;
 end
-% 3d-3. Calculate the utilization costs for average locations with only wind
+% 3.iv.c Calculate the utilization costs for average locations with only wind
 clearvars -except CP_costs panelCapital panel_OnM turbineCapital turbine_OnM electrolyserCapital H2compCapital elect_OnM BattpowerCapital H2storageCapital BattstorageCapital
 S = linspace(1,100)';
 results = CP_costs.average_windonly;
@@ -2666,7 +2666,7 @@ end
 save('CP_costs','CP_costs')
 clearvars
 
-% 4a. Calculate the amount of solar and wind utilization in each month for
+% 4.i Calculate the amount of solar and wind utilization in each month for
 % combined solar and wind at average locations
 load('CP_base_wind')
 load('CP_base_solar')
@@ -3021,7 +3021,7 @@ end
 save('CP_costs','CP_costs')
 clearvars -except CP_costs CP_base_solar CP_base_wind CP_nocurt CP_curt
 
-% 4b. Calculate the amount of solar and wind utilization in each month for
+% 4.ii Calculate the amount of solar and wind utilization in each month for
 % combined solar and wind at top solar locations
 S = linspace(1,100)'; %list is a scaling array for percent curtailment. 
 % It is used to resize all of the process units for each level of curtailment 
@@ -3370,7 +3370,7 @@ end
 save('CP_costs','CP_costs')
 clearvars -except CP_costs CP_base_solar CP_base_wind CP_nocurt CP_curt
 
-% 4c. Calculate the amount of solar and wind utilization in each month for
+% 4.iii Calculate the amount of solar and wind utilization in each month for
 % combined solar and wind at top wind locations
 S = linspace(1,100)'; %list is a scaling array for percent curtailment. 
 % It is used to resize all of the process units for each level of curtailment 
@@ -3719,7 +3719,7 @@ end
 save('CP_costs','CP_costs')
 clearvars -except CP_costs CP_base_solar CP_base_wind CP_nocurt CP_curt
 
-% 4d. Calculate the amount of solar and wind utilization in each month for
+% 4.iv Calculate the amount of solar and wind utilization in each month for
 % combined solar and wind at top locations
 S = linspace(1,100)'; %list is a scaling array for percent curtailment. 
 % It is used to resize all of the process units for each level of curtailment 
