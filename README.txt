@@ -1,7 +1,7 @@
-Guide to code used in the manuscript "Cost efficiency vs energy utilization: re-thinking conventions of producing ammonia with renewable energy"
+#Guide to code used in the manuscript "Cost efficiency vs energy utilization in green ammonia production from intermittent renewables"
 
-CODE
-Raw solar data can be processed using the MATLAB script "Solar_Data_Processing.m". 
+##CODE
+Raw solar data can be processed using the MATLAB script **Solar_Data_Processing.m**
 This script requires solar profile CSV data downloaded from the PVGIS platform (https://re.jrc.ec.europa.eu/pvg_tools/en/) to be in the folder "Raw_Data_Solar". It also requires the MATLAB mat file "gebco_variables",  
 This script executes 5 sections and save SP_base and SP_nocurt. 
 1. Extract all the data from the CSV files and sort in the stucture SP_base
