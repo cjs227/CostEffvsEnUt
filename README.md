@@ -12,7 +12,7 @@ This script executes 5 sections and save **SP_base** and **SP_nocurt**.
 5. Calculate the cost of process components for each case and LCOA. Sort LCOA according to location. 
 
 ## Raw wind data processed  **Wind_Data_Processing.m**. 
-This script requires wind profile NC data downloaded from the New European Wind Atlas platform (https://map.neweuropeanwindatlas.eu/) to be in the folder **Raw_Data_Wind**. Is also requires the MATLAB mat file **gebco_varibales**. 
+This script requires wind profile NC data downloaded from the New European Wind Atlas platform (https://map.neweuropeanwindatlas.eu/) to be in the folder **Raw_Data_Wind**. Is also requires the MATLAB mat file **gebco_variables**. 
 This script executes 5 sections and save **WP_base** and **WP_nocurt**. 
 1. Extract all the data from the NC files and sort in the stucture WP_base 
 2. Input cost parameters in the structure WP_base
