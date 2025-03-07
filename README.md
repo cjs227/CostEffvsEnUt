@@ -1,4 +1,4 @@
-# Guide to code used in the manuscript "Cost efficiency vs energy utilization in green ammonia production from intermittent renewables"
+# Guide to code used in the manuscript "Cost efficiency versus energy utilization in green ammonia production from intermittent renewables"
 
 Written and executed in MATLAB 2023.
 
