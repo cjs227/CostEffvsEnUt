@@ -3,7 +3,7 @@
 Written and executed in MATLAB 2023.
 
 ## Raw solar data processed using **Solar_Data_Processing.m**
-This script requires solar profile CSV data downloaded from the PVGIS platform (https://re.jrc.ec.europa.eu/pvg_tools/en/) to be in the folder **Raw_Data_Solar**. It also requires the MATLAB mat file **gebco_variables**,  
+This script requires solar profile CSV data downloaded from the PVGIS platform (https://re.jrc.ec.europa.eu/pvg_tools/en/) to be in the folder **Raw_Data_Solar**. It also requires the MATLAB mat file **gebco_variables**, obtained using data from https://doi.org/10.5285/f98b053b-0cbc-6c23-e053-6c86abc0af7b  
 This script executes 5 sections and save **SP_base** and **SP_nocurt**. 
 1. Extract all the data from the CSV files and sort in the stucture SP_base
 2. Remove outliers from the power profiles in SP_base structure
@@ -12,7 +12,7 @@ This script executes 5 sections and save **SP_base** and **SP_nocurt**.
 5. Calculate the cost of process components for each case and LCOA. Sort LCOA according to location. 
 
 ## Raw wind data processed  **Wind_Data_Processing.m**. 
-This script requires wind profile NC data downloaded from the New European Wind Atlas platform (https://map.neweuropeanwindatlas.eu/) to be in the folder **Raw_Data_Wind**. Is also requires the MATLAB mat file **gebco_variables**. 
+This script requires wind profile NC data downloaded from the New European Wind Atlas platform (https://map.neweuropeanwindatlas.eu/) to be in the folder **Raw_Data_Wind**. Is also requires the MATLAB mat file **gebco_variables**, obtained using data from https://doi.org/10.5285/f98b053b-0cbc-6c23-e053-6c86abc0af7b 
 This script executes 5 sections and save **WP_base** and **WP_nocurt**. 
 1. Extract all the data from the NC files and sort in the stucture WP_base 
 2. Input cost parameters in the structure WP_base
