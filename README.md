@@ -143,7 +143,7 @@ This script has 29 sections and saves the structure **CP_costs**.
     4. Calculate the amount of solar and wind energy utilized monthly for combined solar and wind at top locations. 
 
 ## Generate maps of LCOA and fraction curtailment in **Map_Generation.mlx**.
-It requires the mat files **SP_nocurt**, **WP_nocurt**, **SP_curt**, **WP_curt**, **SP_ramp**, **WP_ramp**, **CP_curt**, and **PinkHeatMap**, and **YellowBluemap**.
+It requires the mat files **SP_nocurt**, **WP_nocurt**, **SP_curt**, **WP_curt**, **SP_ramp**, **WP_ramp**, **CP_curt**, and **PinkHeatMap**, and **YellowBluemap**, as well as the **plasma** colormap.
 This live script has 9 sections.
 1. Generate map of LCOA with solar and no curtailment. Saves map in images "Solar NoCurt Map.png".
 2. Generate maps of LCOA and fraction curtailment with solar and curtailment.  Saves maps in "Solar Curt Map.png" and "Solar Fraction Curtailment Map.png". 
